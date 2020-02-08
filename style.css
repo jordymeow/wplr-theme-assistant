@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+/**
+ * The style for WPLR Theme Assistant
+ */
+
+/**
+ * Vue related components
+ */
+.v-fadein[v-cloak] {
+	/* Hide until the parent Vue component gets ready */
+	display: none;
+}
+.v-fadein:not([v-cloak]) {
+	/* Fade-in on ready */
+	animation: .5s fadein;
+}
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+.v-placeholder[v-cloak] {
+	/* Show until the parent Vue component gets ready */
+	display: block;
+}
+.v-placeholder:not([v-cloak]) {
+	/* Hide on ready */
+	display: none;
+}
+
+/**
+ * Column Components
+ */
+.meow-cols::after {
+	/* Clearfix */
+	content: "";
+	clear: both;
+	display: table;
+}
+.meow-col {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.meow-col .meow-box:last-child {
+	margin-bottom: 0; /* Remove redundant margin */
+}
+
+/**
+ * Form Components
+ */
+form .form-footer {
+	margin-top: 15px;
+	text-align: right;
+}
+
+/**
+ * Tab Components
+ */
+.tab-content {
+	padding: 20px;
+	border-left:   1px solid #ddd;
+	border-right:  1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0 0 4px 4px;
+	background-color: white;
+}
+.tab-content-header {
+	margin-bottom: 10px;
+}
+.tab-content-header::after {
+	/* Clearfix */
+	content: "";
+	clear: both;
+	display: table;
+}
+.tab-content-header .buttons {
+	float: right;
+}
+.tab-content-header .buttons > * + * {
+	margin-left: 5px;
+}
+.tab-content-header .button.delete {
+	color: #a00;
+}
+.tab-content-header .button.delete:hover {
+	color: #dc3232;
+}
+.tab > a:focus {
+	box-shadow: none; /* Remove glow effect */
+}
+
+/**
+ * Buttons
+ */
+.button {
+	position: relative;
+}
+.button > .dashicons {
+	vertical-align: middle;
+}
+.button > i.awaiting {
+	animation: 3s spin;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to   { transform: rotate(360deg); }
+}
+
+/**
+ * Misc.
+ */
+.dashicons.small {
+	font-size: 17px;
+	width: 17px;
+	height: 17px;
+}
+.dashicons-update {
+	margin-top: -2px;
+}
+.loading .spinner {
+	visibility: visible;
+	display: inline-block;
+	float: none;
+	margin: 0;
+}
