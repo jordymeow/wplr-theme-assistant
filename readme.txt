@@ -6,15 +6,15 @@ Requires at least: 4.8
 Tested up to: 5.2
 Stable tag: 0.5.0
 
-Extension for WP/LR Sync which allows creating mappings between your Lightroom data and the Post Types (often called Collection, Album, Portfolio...) and/or Taxonomies (Folder, Set...) of your theme.
+WP/LR Theme Assistant is an extension for WP/LR Sync that allows you to create mappings between the WP/LR Sync API and the technical structure of your theme in order to automate content creation.
 
 == Description ==
 
-Extension for WP/LR Sync which allows creating mappings between your Lightroom data and the Post Types (often called Collection, Album, Portfolio...) and/or Taxonomies (Folder, Set...) of your theme.
+WP/LR Theme Assistant is an extension for WP/LR Sync that allows you to create mappings between the WP/LR Sync API and the technical structure of your theme in order to automate content creation. Typically, it is used to create a page containing a gallery for each of your collections in Lightroom. 
 
 === Post Types Extension ===
 
-This plugin replaces the former extension called 'Post Types Extension' which was originally shipped with WP/LR Sync. It is currently exactly that extension, but it will evolve from now on.
+This plugin replaces the former extension called 'Post Types Extension' which was originally shipped with WP/LR Sync. It is the same extension, but has evolved and still evolving based on contributions from the developers also using it.
 
 === Tutorial ===
 
