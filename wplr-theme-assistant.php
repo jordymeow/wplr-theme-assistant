@@ -641,7 +641,7 @@ class WPLR_Theme_Assistant {
 				// to be dynamic and updated by the server-side as well. Standard blocks can only be
 				// updated through the editor.
 				$post_content = '<!-- wp:meow-gallery/gallery {"wplrCollection":"' . $collectionId . '"} -->
-					[gallery ids="" layout="tiles" wplr-collection="' . $collectionId . '"][/gallery]
+					[gallery ids="" layout="default" wplr-collection="' . $collectionId . '"][/gallery]
 				<!-- /wp:meow-gallery/gallery -->';
 			}
 			else if ( $mode == 'gallery-shortcode-block' ) {
