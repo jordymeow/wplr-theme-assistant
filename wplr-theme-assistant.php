@@ -588,7 +588,6 @@ class WPLR_Theme_Assistant {
 	*/
 
 	function create_collection( $collectionId, $inFolderId, $collection, $isFolder = false ) {
-		global $wplr;
 		$maps = $this->get_mappings();
 		foreach ( $maps as $map ) { // TODO: Make the overall operation mapping-wise
 			$posttype = $map->posttype;
@@ -606,10 +605,21 @@ class WPLR_Theme_Assistant {
 		$id = $wplr->get_meta( $wplr_pt_posttype, $collectionId );
 		$name = wp_strip_all_tags( isset( $collection['name'] ) ? $collection['name'] : '[Unknown]' );
 
-		if ( $id && !get_post( $id ) ) {
-			error_log( "WP/LR Sync: Collection $name ($id) has to be re-created." );
-			$id = null;
-		}
+		// The post has already an ID attributed by Theme Assistant, so let's have a look at the post
+		if ( $id ) {
+			$post = get_post( $id );
+			// Actually doesn't exist anymore, let's re-create it
+			if ( !$post ) {
+				error_log( "WP/LR Sync: Collection $name ($id) has to be re-created." );
+				$id = null;
+			}
+			// The post type doesn't match, let's update it
+			else if ( $post->post_type !== $posttype ) {
+				error_log( "WP/LR Sync: Collection $name ($id) has the wrong post type ({$post->post_type}). It will be updated to {$posttype}." );
+				$post->post_type = $posttype;
+				wp_update_post( $post );
+			}
+		}		
 
 		// Check if the entry with same name exist already
 		if ( empty( $id ) && $map->posttype_reuse ) {
@@ -641,7 +651,7 @@ class WPLR_Theme_Assistant {
 				// to be dynamic and updated by the server-side as well. Standard blocks can only be
 				// updated through the editor.
 				$post_content = '<!-- wp:meow-gallery/gallery {"wplrCollection":"' . $collectionId . '"} -->
-					[gallery ids="" layout="default" wplr-collection="' . $collectionId . '"][/gallery]
+					[gallery ids="" wplr-collection="' . $collectionId . '"][/gallery]
 				<!-- /wp:meow-gallery/gallery -->';
 			}
 			else if ( $mode == 'gallery-shortcode-block' ) {
