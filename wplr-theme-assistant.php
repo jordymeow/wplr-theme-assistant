@@ -3,7 +3,7 @@
 	Plugin Name: WP/LR Theme Assistant
 	Plugin URI: https://meowapps.com/wplr-sync-theme-assistant/
 	Description: Extension for WP/LR Sync which allows creating mappings between your Lightroom data and the Post Types (often called Collection, Album, Portfolio...) and/or Taxonomies (Folder, Set...) of your theme.
-	Version: 0.5.0
+	Version: 0.5.3
 	Author: Jordy Meow
 	Author URI: https://meowapps.com
 */
@@ -13,10 +13,9 @@ require_once __DIR__ .'/lib/MappingsAPI.php';
 
 class WPLR_Theme_Assistant {
 
-	private $base_dir, $base_url;
+	private $base_url;
 
 	public function __construct() {
-		$this->base_dir = __DIR__;
 		$this->base_url = plugin_dir_url( __FILE__ );
 
 		// REST
