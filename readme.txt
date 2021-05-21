@@ -3,8 +3,8 @@ Contributors: TigrouMeow
 Tags: wplr-extension, lightroom, wplr-sync, assistant
 Donate link: https://commerce.coinbase.com/checkout/d047546a-77a8-41c8-9ea9-4a950f61832f
 Requires at least: 4.8
-Tested up to: 5.2
-Stable tag: 0.5.3
+Tested up to: 5.7
+Stable tag: 0.5.4
 
 WP/LR Theme Assistant is an extension for WP/LR Sync that allows you to create mappings between the WP/LR Sync API and the technical structure of your theme in order to automate content creation.
 
@@ -34,6 +34,9 @@ Replace all the files. Nothing else to do.
 Nothing yet.
 
 == Changelog ==
+
+= 0.5.4 =
+* Update: For better compatibility with the new version of WP/LR Sync (now called Photo Engine), the Settings have been moved under the Meow Apps menu.
 
 = 0.5.3 =
 * Update: If the post type of a synchronized post doesn't match the settings, update the post type.
